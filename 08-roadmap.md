@@ -127,40 +127,45 @@ Aceite:
 
 Duracao alvo: continua.
 
-Estado em 2026-09-09: entregues os itens 1, 2, 3 (taxa de cache no painel
-e exportacao CSV; top sessoes pendente), 8, a parte de fases do item 9, e o
-servidor MCP do item 10. `core` com 42 testes.
-
-Entregas, em ordem de valor:
+Estado em 2026-09-09: `core` com 49 testes. Tudo que nao depende de
+ambiente externo foi entregue.
 
 1. Compactacao propria com resumo pelo agente local e poda de resultados de
    ferramenta. Entregue.
 2. Delegacao entre perfis com custo agregado no painel. Entregue.
-3. Relatorios: cache por agente e exportacao CSV entregues; top sessoes
-   pendente.
-4. Sandbox por container para perfis com execucao `allow`.
-5. Cifra de ponta a ponta no relay.
-6. Classificador de intencao pelo agente local como fallback das regras de
-   roteamento.
-7. Avaliar compactacao do lado do servidor da Anthropic e comparar custo com
-   a propria.
-8. Plugins no layout do Claude Code e hooks com adaptador. Entregue, por
-   caminho local; instalacao por URL git pendente.
-9. Fases por perfil entregues. Workflows declarativos com custo maximo
-   calculavel pendentes.
-10. Servidor MCP exposto pelo daemon entregue (`agent-hub-daemon mcp`). A2A
-    nas duas direcoes e exportador OpenTelemetry pendentes.
-11. Canal Slack.
-12. Emparelhamento por QR code, notificacao push do PWA, OAuth e recursos
-    e prompts MCP, vindos das fases anteriores.
+3. Relatorios: cache por agente, sessoes clicaveis ordenadas por custo e
+   exportacao CSV. Entregue.
+4. Sandbox por container: perfil com `sandbox.image` roda `run_command` em
+   `docker run` com o workspace montado e sem rede por padrao; execucao
+   `allow` sem sandbox cai para `ask`. Entregue.
+5. Cifra de ponta a ponta no relay com AES-GCM derivada do token de conta.
+   Entregue e verificada.
+6. Classificador de intencao pelo agente local como fallback das regras.
+   Entregue.
+7. Avaliar compactacao do lado do servidor da Anthropic. Pendente, depende
+   de chave real para medir.
+8. Plugins no layout do Claude Code e hooks com adaptador, por caminho local
+   ou por git (`agent-hub-daemon plugins sync`). Entregue.
+9. Fases por perfil e workflows declarativos com custo maximo calculavel,
+   schema de saida e retry limitado. Entregue.
+10. Servidor MCP exposto pelo daemon e exportador OpenTelemetry por
+    OTLP/HTTP. Entregues. A2A nas duas direcoes pendente.
+11. Canal Slack. Retirado do escopo pelo dono da iniciativa.
+12. Emparelhamento por link e QR, notificacao push do PWA, recursos e
+    prompts MCP. Entregues. OAuth em MCP remoto pendente, depende de um
+    servidor com OAuth para testar.
+
+Desktop: compilado para Linux em Docker (`desktop/scripts/build-linux-docker.sh`),
+gerando deb, rpm e AppImage. Windows e macOS exigem Rust nessas plataformas.
 
 ## Proximo passo recomendado
 
-Antes de mais codigo, validar com chaves reais: preencher os precos do
-DeepSeek em `agents/pricing.json`, exportar `ANTHROPIC_API_KEY` e
-`DEEPSEEK_API_KEY`, deixar o Ollama alcancavel pelo daemon, e rodar os
-aceites 1 a 4 da fase 1 pelo CLI e pela interface web. O que quebrar ali
-vale mais que qualquer item da fase 4.
+Validar com chaves reais. Os precos ja estao preenchidos; falta exportar
+`ANTHROPIC_API_KEY`, `DEEPSEEK_API_KEY` e `OPENAI_API_KEY` no ambiente do
+daemon, deixar o Ollama alcancavel, e rodar os aceites 1 a 4 da fase 1 pelo
+CLI e pela interface (`./dev.sh` na raiz sobe tudo em localhost). Depois:
+A2A, OAuth em MCP, compactacao do servidor da Anthropic, e o desktop para
+Windows e macOS.
 
 ## Riscos conhecidos
 
