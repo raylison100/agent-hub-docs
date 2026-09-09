@@ -127,23 +127,40 @@ Aceite:
 
 Duracao alvo: continua.
 
+Estado em 2026-09-09: entregues os itens 1, 2, 3 (taxa de cache no painel
+e exportacao CSV; top sessoes pendente), 8, a parte de fases do item 9, e o
+servidor MCP do item 10. `core` com 42 testes.
+
 Entregas, em ordem de valor:
 
 1. Compactacao propria com resumo pelo agente local e poda de resultados de
-   ferramenta.
-2. Delegacao entre perfis com custo agregado no painel.
-3. Relatorios: cache por agente, top sessoes, exportacao CSV.
+   ferramenta. Entregue.
+2. Delegacao entre perfis com custo agregado no painel. Entregue.
+3. Relatorios: cache por agente e exportacao CSV entregues; top sessoes
+   pendente.
 4. Sandbox por container para perfis com execucao `allow`.
 5. Cifra de ponta a ponta no relay.
 6. Classificador de intencao pelo agente local como fallback das regras de
    roteamento.
 7. Avaliar compactacao do lado do servidor da Anthropic e comparar custo com
    a propria.
-8. Plugins no layout do Claude Code e hooks com adaptador.
-9. Fases por perfil e workflows declarativos com custo maximo calculavel.
-10. Servidor MCP exposto pelo daemon, A2A nas duas direcoes, exportador
-    OpenTelemetry.
+8. Plugins no layout do Claude Code e hooks com adaptador. Entregue, por
+   caminho local; instalacao por URL git pendente.
+9. Fases por perfil entregues. Workflows declarativos com custo maximo
+   calculavel pendentes.
+10. Servidor MCP exposto pelo daemon entregue (`agent-hub-daemon mcp`). A2A
+    nas duas direcoes e exportador OpenTelemetry pendentes.
 11. Canal Slack.
+12. Emparelhamento por QR code, notificacao push do PWA, OAuth e recursos
+    e prompts MCP, vindos das fases anteriores.
+
+## Proximo passo recomendado
+
+Antes de mais codigo, validar com chaves reais: preencher os precos do
+DeepSeek em `agents/pricing.json`, exportar `ANTHROPIC_API_KEY` e
+`DEEPSEEK_API_KEY`, deixar o Ollama alcancavel pelo daemon, e rodar os
+aceites 1 a 4 da fase 1 pelo CLI e pela interface web. O que quebrar ali
+vale mais que qualquer item da fase 4.
 
 ## Riscos conhecidos
 
