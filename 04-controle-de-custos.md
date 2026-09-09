@@ -151,7 +151,12 @@ O perfil declara `reasoning` de forma neutra e o adaptador traduz:
 | `low` | `output_config.effort: low` | `reasoning_effort: low` | `thinking: disabled` | sem alteracao |
 | `medium` | `effort: medium` | `medium` | `thinking: enabled`, `reasoning_effort: high` | sem alteracao |
 | `high` | `effort: high` | `high` | `thinking: enabled`, `reasoning_effort: high` | `think: true` quando o modelo suporta |
-| `max` | `effort: xhigh` | `high` | `thinking: enabled`, `reasoning_effort: max` | `think: true` |
+| `max` | `effort: xhigh` | `max` | `thinking: enabled`, `reasoning_effort: max` | `think: true` |
+
+Na OpenAI, `provider_options.reasoning_effort` no perfil sobrescreve o
+mapeamento com qualquer valor aceito pelo modelo (`none`, `low`, `medium`,
+`high`, `xhigh`, `max`). E o caminho para `xhigh`, que fica entre `high` e
+`max` e nao tem equivalente na escala de quatro niveis do perfil.
 
 Anthropic: pensamento adaptativo e o padrao nos modelos atuais, o adaptador
 nao envia `budget_tokens`.
