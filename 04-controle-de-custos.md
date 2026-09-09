@@ -38,8 +38,8 @@ Regras:
     "anthropic/claude-opus-5":  { "input": 5.0, "output": 25.0, "cache_read": 0.5, "cache_write": 6.25 },
     "anthropic/claude-sonnet-5": { "input": 2.0, "output": 10.0, "cache_read": 0.2, "cache_write": 2.5 },
     "anthropic/claude-haiku-4-5": { "input": 1.0, "output": 5.0, "cache_read": 0.1, "cache_write": 1.25 },
-    "deepseek/deepseek-chat":   { "input": null, "output": null, "cache_read": null, "note": "preencher com a tabela vigente do provedor" },
-    "deepseek/deepseek-reasoner": { "input": null, "output": null, "cache_read": null },
+    "deepseek/deepseek-v4-flash": { "input": 0.44, "output": 1.32, "cache_read": 0.014, "cache_write": 0 },
+    "deepseek/deepseek-v4-pro":   { "input": 1.32, "output": 3.96, "cache_read": 0.044, "cache_write": 0 },
     "ollama/*":                 { "input": 0, "output": 0, "cache_read": 0, "cache_write": 0 }
   }
 }
@@ -49,7 +49,9 @@ Regras:
   leitura custa 0.1x da entrada, escrita de cache 1.25x. Confirmar antes de
   fechar a fase 1.
 - DeepSeek cobra diferente para acerto e erro de cache. O adaptador separa os
-  dois e a tabela precisa dos dois precos.
+  dois: `input` e o cache miss, `cache_read` e o cache hit. Os valores sao
+  de horario de pico; fora dele a API cobra metade e o ledger fica
+  conservador.
 - Modelo local custa zero por token. Opcionalmente o perfil pode declarar
   `cost_per_hour` para estimar energia e amortizacao de hardware. Fica como
   melhoria da fase 4.
@@ -146,10 +148,10 @@ O perfil declara `reasoning` de forma neutra e o adaptador traduz:
 
 | Perfil | Anthropic | OpenAI | DeepSeek | Ollama |
 |--------|-----------|--------|----------|--------|
-| `low` | `output_config.effort: low` | `reasoning_effort: low` | `deepseek-chat` | sem alteracao |
-| `medium` | `effort: medium` | `medium` | `deepseek-chat` | sem alteracao |
-| `high` | `effort: high` | `high` | `deepseek-reasoner` | `think: true` quando o modelo suporta |
-| `max` | `effort: xhigh` | `high` | `deepseek-reasoner` | `think: true` |
+| `low` | `output_config.effort: low` | `reasoning_effort: low` | `thinking: disabled` | sem alteracao |
+| `medium` | `effort: medium` | `medium` | `thinking: enabled`, `reasoning_effort: high` | sem alteracao |
+| `high` | `effort: high` | `high` | `thinking: enabled`, `reasoning_effort: high` | `think: true` quando o modelo suporta |
+| `max` | `effort: xhigh` | `high` | `thinking: enabled`, `reasoning_effort: max` | `think: true` |
 
 Anthropic: pensamento adaptativo e o padrao nos modelos atuais, o adaptador
 nao envia `budget_tokens`.

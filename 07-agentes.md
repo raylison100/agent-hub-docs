@@ -84,7 +84,7 @@ ajustar endpoint. Bom custo por token e tool calling adequado.
 ```yaml
 name: deepseek-dev
 provider: deepseek
-model: deepseek-chat
+model: deepseek-v4-flash
 reasoning: medium
 max_output: 8000
 max_steps: 30
@@ -96,16 +96,19 @@ budget:
   run_usd: 0.30
   session_usd: 3.00
 context:
-  window: 128000
-  compact_at: 0.7
+  window: 1000000
+  compact_at: 0.5
   summarizer: local-leitor
 provider_options:
   base_url: https://api.deepseek.com
 ```
 
-Notas de custo: `reasoning: high` troca para `deepseek-reasoner`, que custa
-mais e pensa mais. Fica em `medium` por padrao e o usuario sobe por sessao
-quando a tarefa pedir.
+Notas de custo: no V4 o raciocinio e ligado por parametro, nao por troca
+de modelo. `low` desliga, `medium` e `high` ligam com esforco alto, `max`
+com esforco maximo. Tokens de raciocinio contam como saida. Fora do
+horario de pico a API cobra metade; o ledger registra a tarifa de pico.
+`deepseek-v4-pro` custa o triplo e fica para tarefas que o Flash nao
+resolve.
 
 ### local-leitor
 
