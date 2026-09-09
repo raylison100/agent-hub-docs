@@ -17,11 +17,13 @@ Aceite: o dono da iniciativa leu e aprovou os documentos 01 a 08.
 
 ## Fase 1. Core e daemon por CLI
 
-Estado: em andamento. Esqueleto entregue em 2026-09-09 com `core` (26
-testes), `agents` (tres perfis, precos, politicas, uma skill) e `daemon`
-(CLI e servidor WebSocket). Pendente: compactacao, MCP por HTTP com OAuth,
-recursos e prompts MCP, redacao de segredos, roteamento por regra, e a
-validacao com chaves reais dos aceites 1 a 4.
+Estado: codigo entregue em 2026-09-09 com `core` (33 testes), `agents`
+(tres perfis, precos, politicas, roteamento, uma skill) e `daemon` (CLI e
+servidor WebSocket), incluindo compactacao, redacao de segredos, roteamento
+por regra, ativacao de skills, MCP por stdio e HTTP e escalada para
+`fallback_agent`. Pendente: OAuth, recursos e prompts MCP, e a validacao com
+chaves reais dos aceites 1 a 4, que depende de preencher os precos do
+DeepSeek e de ter o Ollama alcancavel pelo daemon.
 
 Duracao alvo: 3 semanas.
 
@@ -60,6 +62,13 @@ Aceite:
 
 ## Fase 2. Interface web e desktop
 
+Estado: `web` entregue em 2026-09-09 (sessoes, chat com streaming,
+aprovacoes, custos, agentes, automacoes, conexao direta ou pelo relay com
+reconexao e catch-up). Agendamentos entregues no daemon. `desktop` escrito
+como esqueleto Tauri 2 e nao compilado por falta de Rust na maquina de
+desenvolvimento. Pendente: compilar o desktop, empacotar o daemon como
+sidecar e validar os aceites 1 a 4 em instalacao real.
+
 Duracao alvo: 3 semanas.
 
 Entregas:
@@ -81,6 +90,14 @@ Aceite:
    aparece como sessao com origem `schedule`.
 
 ## Fase 3. Acesso remoto e mobile
+
+Estado: `relay` entregue em 2026-09-09 com multiplexacao por canal, limite
+de taxa e entrada de webhooks. Daemon liga ao relay com reconexao. Gatilhos
+`gitlab`, `github` e `generic` (Standard Webhooks) com filtro, dedupe e
+orcamento, verificados de ponta a ponta. Webhooks de saida em Standard
+Webhooks. Canal Telegram funcional. Pendente: emparelhamento por QR code,
+notificacao push do PWA, deploy do relay com TLS e validacao dos aceites em
+rede real.
 
 Duracao alvo: 2 semanas.
 
