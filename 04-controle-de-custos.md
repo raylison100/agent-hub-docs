@@ -153,6 +153,9 @@ O perfil declara `reasoning` de forma neutra e o adaptador traduz:
 | `high` | `effort: high` | `high` | `thinking: enabled`, `reasoning_effort: high` | `think: true` quando o modelo suporta |
 | `max` | `effort: xhigh` | `max` | `thinking: enabled`, `reasoning_effort: max` | `think: true` |
 
+Gemini usa o endpoint compativel com OpenAI do Google e o mesmo
+`reasoning_effort`, limitado a `high`; `max` no perfil vira `high`.
+
 Na OpenAI, `provider_options.reasoning_effort` no perfil sobrescreve o
 mapeamento com qualquer valor aceito pelo modelo (`none`, `low`, `medium`,
 `high`, `xhigh`, `max`). E o caminho para `xhigh`, que fica entre `high` e
