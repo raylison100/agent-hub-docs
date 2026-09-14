@@ -101,6 +101,22 @@ teto mensal global, o de automacao e o diario por agente.
 comandos, agentes, servidores MCP e hooks. `overrides.json` escolhe provedor e
 modelo dos agentes que vem de plugin.
 
+```json
+{ "plugins": [{ "path": "/caminho/do/marketplace/plugins/meu-plugin" }] }
+```
+
+- As skills entram com o prefixo do plugin (`meu-plugin:nome-da-skill`) e ficam
+  disponiveis para o perfil ou papel que as listar em `skills`.
+- Ao carregar uma skill, o agente recebe a pasta dela e pode ler seus arquivos
+  (modelos, referencias, scripts) pelo caminho absoluto. Escrever continua so no
+  workspace. `${CLAUDE_SKILL_DIR}` e `${CLAUDE_PLUGIN_ROOT}` no texto da skill
+  viram os caminhos reais.
+- Os servidores MCP do plugin se chamam `meu-plugin-servidor`. Campos de
+  configuracao do usuario do plugin (`${user_config.gemini_api_key}`) sao lidos
+  da chave de mesmo nome em maiusculas cadastrada em Chaves (`GEMINI_API_KEY`).
+- Um jeito pratico de usar: um papel em `roles/` com as skills, o servidor MCP e
+  as ferramentas de escrita, escolhido na hora de abrir a sessao.
+
 ## Precos
 
 `pricing.json` tem o preco por milhao de tokens de cada modelo, com cache e
