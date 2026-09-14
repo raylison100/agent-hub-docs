@@ -6,10 +6,14 @@ Pacote unico com o daemon, o core embutido, a interface e os agentes iniciais,
 instalado com `npm install -g` e preparado com `agent-hub instalar`. Veja
 [Instalacao](Instalacao).
 
+## Feito: app de desktop sem daemon
+
+Quando o app nao encontra o daemon, mostra os comandos de instalacao com botao
+de copiar (no Windows, com os passos do WSL) e conecta sozinho assim que o
+daemon subir.
+
 ## Proximo
 
-- O app de desktop no Windows mostrar o comando de instalar no WSL quando nao
-  encontrar o daemon.
 - Publicar cada versao do pacote como Release automaticamente.
 
 ## Parado

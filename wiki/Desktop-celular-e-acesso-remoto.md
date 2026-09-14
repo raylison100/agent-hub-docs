@@ -14,7 +14,9 @@ Tauri 2, com bandeja e janela que esconde ao fechar.
 
 - **Windows**: o app conecta no daemon que roda no WSL. Gere com `make windows`,
   copie o instalador de `desktop/dist-bundle` para uma pasta do Windows e rode.
-  Executado direto de `\\wsl.localhost\...`, o instalador falha.
+  Executado direto de `\\wsl.localhost\...`, o instalador falha. Se o daemon
+  ainda nao estiver instalado no WSL, o app mostra os comandos para instalar,
+  com botao de copiar, e conecta sozinho assim que ele subir.
 - **Linux**: `make linux` gera `.deb` e `.rpm`. Sem daemon no ar, o app sobe um.
 
 O seletor de pasta usa a janela nativa do sistema e traduz caminhos do Windows
