@@ -12,9 +12,14 @@ Quando o app nao encontra o daemon, mostra os comandos de instalacao com botao
 de copiar (no Windows, com os passos do WSL) e conecta sozinho assim que o
 daemon subir.
 
+## Feito: Release automatica
+
+`make versao VERSAO=X.Y.Z` marca a versao nos nove repositorios, e o GitHub
+Actions monta, testa e publica o pacote. Veja [Desenvolvimento](Desenvolvimento).
+
 ## Proximo
 
-- Publicar cada versao do pacote como Release automaticamente.
+- Incluir o instalador do Windows e os pacotes `.deb` e `.rpm` na Release.
 
 ## Parado
 
