@@ -35,6 +35,14 @@ novo da Release.
 O seletor de pasta usa a janela nativa do sistema e traduz caminhos do Windows
 para o WSL.
 
+**Links e arquivos na conversa**: link para site abre no navegador do sistema,
+sem tirar a janela do chat. Caminho de arquivo citado na resposta (HTML,
+imagem, SVG ou PDF dentro do workspace da sessao) fica clicavel e abre no painel
+**Visualizar**, ao lado do chat, com botoes para recarregar e abrir fora. O
+daemon so serve esses arquivos para a propria maquina, so de dentro do
+workspace, e o HTML roda isolado, sem acesso a origem do daemon: uma pagina
+gerada pelo agente nao consegue pegar a credencial local.
+
 ## Celular
 
 A interface e um PWA: abra pelo navegador do celular e instale na tela inicial.
