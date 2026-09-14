@@ -41,5 +41,6 @@ arquivos, com modelo pequeno, as medicoes mostraram que nao. Veja
 
 **Por que tantos repositorios?**
 Cada parte tem ciclo e dependencias proprios: a interface pode mudar sem
-recompilar o daemon, o relay roda num servidor, os agentes sao so texto. Um pacote
-unico para instalar esta no [Roadmap](Roadmap).
+recompilar o daemon, o relay roda num servidor, os agentes sao so texto. Para
+usar, nao precisa de nenhum deles: o pacote unico junta o necessario, veja
+[Instalacao](Instalacao).

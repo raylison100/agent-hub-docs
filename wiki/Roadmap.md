@@ -1,20 +1,16 @@
 # Roadmap
 
-## Proximo: instalar sem clonar
+## Feito: instalar sem clonar
 
-Hoje e preciso clonar os repositorios e compilar. O plano:
+Pacote unico com o daemon, o core embutido, a interface e os agentes iniciais,
+instalado com `npm install -g` e preparado com `agent-hub instalar`. Veja
+[Instalacao](Instalacao).
 
-1. O `core` passa a ir compilado dentro do pacote do daemon, e a interface
-   resolvida a partir do pacote.
-2. Um conjunto limpo de agentes vai dentro do pacote e e copiado uma vez para
-   `~/.agent-hub/agents`.
-3. Comandos `agent-hub instalar` (config, agentes iniciais, servico do systemd,
-   checagem de dependencias nativas, teste de saude) e `agent-hub atualizar`.
-4. `make pacote` gera o `.tgz`, distribuido por Release do GitHub.
-5. Teste de instalacao em pasta limpa, sem nenhum repositorio clonado.
+## Proximo
 
-Depois disso, o app de desktop no Windows pode mostrar o comando de instalar no
-WSL quando nao encontrar o daemon.
+- O app de desktop no Windows mostrar o comando de instalar no WSL quando nao
+  encontrar o daemon.
+- Publicar cada versao do pacote como Release automaticamente.
 
 ## Parado
 
