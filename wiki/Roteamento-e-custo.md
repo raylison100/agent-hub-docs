@@ -49,6 +49,21 @@ Os votos bom e ruim de cada agente em cada intencao ajustam a capacidade usada n
 pontuacao. `agent-hub-daemon feedback` mostra o ajuste; `agent-hub-daemon route
 "texto"` mostra a decisao e o ranking sem gastar tokens.
 
+## Papel escolhido pelo pedido
+
+Quando a sessao nao tem papel, `roles` no `routing.json` escolhe um pelo texto do
+pedido. A primeira regra que casa vale, e `improve: false` desliga o melhorador
+de prompt para aquele pedido, quando a skill do papel ja faz esse trabalho:
+
+```json
+"roles": [
+  { "when": { "keywords": ["arte", "stories", "campanha"] }, "role": "marketing", "improve": false }
+]
+```
+
+Prefira palavras que nao aparecem em pedido de codigo. O aviso de roteamento na
+conversa diz quando o papel veio da regra.
+
 ## Melhorador de prompt
 
 `prompt_improver` reescreve o pedido para o agente escolhido, sem inventar fato.
