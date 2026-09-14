@@ -41,6 +41,14 @@ Abra `http://127.0.0.1:47311` e siga em [Primeiros passos](Primeiros-passos).
 
 ### Atualizar
 
+Pela interface: em **Configuracoes, Atualizacoes** o daemon mostra a versao em
+execucao e a ultima publicada, e o botao **Atualizar o daemon** baixa o pacote
+novo, reinstala e reinicia o servico. A barra lateral avisa quando sai versao
+nova. O botao aparece quando o daemon roda pelo servico do systemd; fora dele,
+a tela mostra o comando.
+
+Pelo terminal:
+
 ```bash
 agent-hub atualizar https://github.com/raylison100/agent-hub/releases/download/vX.Y.Z/agent-hub-X.Y.Z.tgz
 ```

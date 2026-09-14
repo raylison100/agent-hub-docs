@@ -14,8 +14,15 @@ Tauri 2, com bandeja e janela que esconde ao fechar. Baixe na
 [pagina de Releases](https://github.com/raylison100/agent-hub/releases):
 `agent-hub-desktop-VERSAO-windows-x64-setup.exe`, `agent-hub-desktop-VERSAO-amd64.deb`
 ou `agent-hub-desktop-VERSAO-x86_64.rpm`. O app e so a janela: instale antes o
-daemon pelo pacote, como em [Instalacao](Instalacao). Os instaladores nao sao
-assinados, e o Windows pode avisar na primeira execucao.
+daemon pelo pacote, como em [Instalacao](Instalacao). Os instaladores nao tem
+certificado de codigo, e o Windows pode avisar na primeira execucao.
+
+**Atualizacao do app**: no Windows, o app procura a versao nova ao abrir e a
+barra lateral avisa. Em **Configuracoes, Atualizacoes**, o botao **Instalar e
+reabrir** baixa o instalador, confere a assinatura da atualizacao contra a
+chave publica gravada no app e so entao instala e reabre. Um instalador
+alterado ou de outra origem e recusado. No Linux, baixe o `.deb` ou o `.rpm`
+novo da Release.
 
 - **Windows**: o app conecta no daemon que roda no WSL. Gere com `make windows`,
   copie o instalador de `desktop/dist-bundle` para uma pasta do Windows e rode.

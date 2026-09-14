@@ -79,6 +79,31 @@ tres jobs sem publicar, para testar mudancas no workflow. O
 workflow usa o token do proprio GitHub Actions: ninguem precisa de token
 pessoal nem do `gh`.
 
+### Assinatura das atualizacoes do app
+
+O app de desktop so instala uma versao nova assinada pela chave cuja parte
+publica esta em `plugins.updater.pubkey` do `tauri.conf.json`. Para gerar um par
+novo (ao trocar a chave, quem tem o app antigo precisa instalar a versao nova a
+mao uma vez):
+
+```bash
+npx @tauri-apps/cli@2 signer generate --ci -w ~/.tauri/agent-hub-atualizacao.key
+```
+
+A parte privada nunca vai para o repositorio. No GitHub, ela fica no segredo
+`TAURI_SIGNING_PRIVATE_KEY` do repositorio `agent-hub` (e a senha, se houver, em
+`TAURI_SIGNING_PRIVATE_KEY_PASSWORD`). Com o segredo, o job do Windows gera o
+`.sig` do instalador e o job de publicar monta o `latest.json`
+(`scripts/manifesto-de-atualizacao.sh`), que o app consulta em
+`releases/latest/download/latest.json`. Sem o segredo, a Release sai igual, mas
+sem atualizacao automatica do app. Localmente, `make windows` assina quando
+encontra `~/.tauri/agent-hub-atualizacao.key`.
+
+A atualizacao do daemon pela interface nao precisa de chave: o daemon baixa o
+pacote da Release pelo HTTPS do GitHub e roda `agent-hub atualizar` numa unidade
+transitoria do systemd, fora do servico que vai reiniciar.
+`daemon/scripts/testar-atualizacao.sh` confere esse caminho num container.
+
 ## Wiki
 
 As paginas da wiki ficam em `agent-hub-docs/wiki`. Para publicar, copie para o

@@ -28,6 +28,12 @@ Pessoas de confianca usam os modelos do Ollama umas das outras, com convite por
 pessoa, sala e chave proprias, limite diario, revogacao e so a chamada ao modelo
 atravessando. Veja [Compartilhar modelos](Compartilhar-modelos).
 
+## Feito: atualizacao pela interface
+
+O app de desktop no Windows acha, confere a assinatura e instala a versao nova
+sozinho, e o daemon instalado pelo pacote se atualiza pelo botao em
+Configuracoes, Atualizacoes. Veja [Instalacao](Instalacao).
+
 ## Proximo
 
 - Nenhum item aberto. Ideias novas entram aqui antes de virar trabalho.
