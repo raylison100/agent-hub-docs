@@ -10,14 +10,20 @@ sozinho.
 
 ## App de desktop
 
-Tauri 2, com bandeja e janela que esconde ao fechar.
+Tauri 2, com bandeja e janela que esconde ao fechar. Baixe na
+[pagina de Releases](https://github.com/raylison100/agent-hub/releases):
+`agent-hub-desktop-VERSAO-windows-x64-setup.exe`, `agent-hub-desktop-VERSAO-amd64.deb`
+ou `agent-hub-desktop-VERSAO-x86_64.rpm`. O app e so a janela: instale antes o
+daemon pelo pacote, como em [Instalacao](Instalacao). Os instaladores nao sao
+assinados, e o Windows pode avisar na primeira execucao.
 
 - **Windows**: o app conecta no daemon que roda no WSL. Gere com `make windows`,
   copie o instalador de `desktop/dist-bundle` para uma pasta do Windows e rode.
   Executado direto de `\\wsl.localhost\...`, o instalador falha. Se o daemon
   ainda nao estiver instalado no WSL, o app mostra os comandos para instalar,
   com botao de copiar, e conecta sozinho assim que ele subir.
-- **Linux**: `make linux` gera `.deb` e `.rpm`. Sem daemon no ar, o app sobe um.
+- **Linux**: sem daemon no ar, o app sobe um usando o comando `agent-hub` do
+  pacote. Para gerar localmente, `make linux`.
 
 O seletor de pasta usa a janela nativa do sistema e traduz caminhos do Windows
 para o WSL.

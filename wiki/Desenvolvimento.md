@@ -69,9 +69,13 @@ O `scripts/versao.sh`:
 4. envia os oito repositorios e, por ultimo, a raiz.
 
 A tag da raiz dispara o workflow **Release** (`.github/workflows/release.yml`),
-que clona os outros repositorios na mesma tag, compila, roda os testes do core,
-monta o pacote, instala num container limpo e publica a Release com o `.tgz` e
-as notas geradas pelos commits de cada repositorio desde a versao anterior. O
+que clona os outros repositorios na mesma tag e roda tres jobs em paralelo: o
+pacote (compila, roda os testes do core, monta e instala num container limpo),
+o app de Linux (`.deb` e `.rpm`) e o app de Windows (instalador NSIS, em runner
+Windows). Com os tres verdes, publica a Release com tudo, uma copia
+`agent-hub.tgz` de nome fixo e as notas geradas pelos commits de cada
+repositorio desde a versao anterior. Um push na branch `ci/release` roda os
+tres jobs sem publicar, para testar mudancas no workflow. O
 workflow usa o token do proprio GitHub Actions: ninguem precisa de token
 pessoal nem do `gh`.
 

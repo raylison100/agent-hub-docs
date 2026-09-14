@@ -17,9 +17,14 @@ daemon subir.
 `make versao VERSAO=X.Y.Z` marca a versao nos nove repositorios, e o GitHub
 Actions monta, testa e publica o pacote. Veja [Desenvolvimento](Desenvolvimento).
 
+## Feito: aplicativos de desktop na Release
+
+Cada Release traz o instalador do Windows e os pacotes `.deb` e `.rpm`,
+compilados no GitHub Actions a partir da mesma tag.
+
 ## Proximo
 
-- Incluir o instalador do Windows e os pacotes `.deb` e `.rpm` na Release.
+- Nenhum item aberto. Ideias novas entram aqui antes de virar trabalho.
 
 ## Parado
 
