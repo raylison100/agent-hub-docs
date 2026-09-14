@@ -1,5 +1,13 @@
 # Documentacao da iniciativa Agent Hub
 
+Planejamento, arquitetura e decisoes do Agent Hub, escritos antes e durante a
+construcao. Para usar o projeto, comece pela [wiki](https://github.com/raylison100/agent-hub/wiki);
+as paginas dela ficam versionadas aqui em `wiki/`.
+
+Os documentos numerados registram o desenho original e podem citar nomes de
+perfil que mudaram depois; o estado atual esta na wiki e nos READMEs de cada
+repositorio.
+
 Leia em ordem. Cada documento e curto e cobre um assunto.
 
 | Documento | Conteudo |
@@ -27,3 +35,29 @@ Leia em ordem. Cada documento e curto e cobre um assunto.
   (desktop, navegador ou celular), **relay** (retransmissor), **perfil**
   (configuracao de um agente), **run** (uma execucao do loop de agente a partir
   de uma mensagem do usuario), **ledger** (registro de custo por chamada).
+
+## Parte do Agent Hub
+
+Este repositorio e uma das partes do [Agent Hub](https://github.com/raylison100/agent-hub),
+um gerenciador de modelos de IA que roda na sua maquina. A documentacao geral
+esta na [wiki](https://github.com/raylison100/agent-hub/wiki).
+
+| Repositorio | Papel |
+|---|---|
+| [agent-hub](https://github.com/raylison100/agent-hub) | ponto de partida, Makefile, scripts e wiki |
+| [agent-hub-core](https://github.com/raylison100/agent-hub-core) | biblioteca TypeScript: adaptadores, laco do agente, custo, roteamento, ferramentas, protocolo |
+| [agent-hub-daemon](https://github.com/raylison100/agent-hub-daemon) | servico local: sessoes, runs, aprovacoes, automacao, conectores, API WebSocket |
+| [agent-hub-web](https://github.com/raylison100/agent-hub-web) | interface Vue 3 como PWA, a mesma no navegador, no celular e no desktop |
+| [agent-hub-agents](https://github.com/raylison100/agent-hub-agents) | perfis, papeis, skills, workflows, precos, roteamento e politicas, em texto |
+| [agent-hub-desktop](https://github.com/raylison100/agent-hub-desktop) | app Tauri 2 para Windows e Linux |
+| [agent-hub-relay](https://github.com/raylison100/agent-hub-relay) | retransmissor sem estado para acesso remoto |
+| [agent-hub-channels](https://github.com/raylison100/agent-hub-channels) | clientes em plataformas de mensagem, hoje Telegram |
+| [agent-hub-docs](https://github.com/raylison100/agent-hub-docs) | planejamento, arquitetura, ADRs e a fonte das paginas da wiki |
+
+## Licenca
+
+[PolyForm Noncommercial 1.0.0](LICENSE). Pode ler, estudar, modificar e usar
+para fins pessoais, de pesquisa, ensino ou em organizacao sem fins lucrativos.
+Uso comercial nao e permitido sem autorizacao do autor.
+
+Required Notice: Copyright (c) 2026 Raylison Nunes (https://github.com/raylison100)
