@@ -101,6 +101,22 @@ teto mensal global, o de automacao e o diario por agente.
 comandos, agentes, servidores MCP e hooks. `overrides.json` escolhe provedor e
 modelo dos agentes que vem de plugin.
 
+O jeito mais facil e a tela **Configuracoes, Plugins**:
+
+1. Em **Instalados no Claude Code**, clique em **Adicionar** no plugin que voce
+   ja usa no Claude Code. O daemon prefere a pasta de origem do marketplace local
+   a copia em cache, entao um `git pull` na origem ja atualiza o plugin.
+2. Ou cole a pasta do plugin ou a URL git (com branch ou tag opcional) em
+   **Adicionar por pasta ou git**. Repositorio git e clonado em
+   `agents/.plugins`.
+3. Se o plugin pede configuracao (uma chave de API, por exemplo), a tela mostra
+   qual variavel falta e leva para **Chaves**.
+4. **Criar papel com as skills** grava um papel em `roles/` com as skills, os
+   servidores MCP e as ferramentas de escrita do plugin, para escolher na sessao.
+
+Na mesma tela da para desligar um plugin sem tira-lo da lista e remove-lo (a
+pasta nao e apagada). O arquivo continua editavel a mao:
+
 ```json
 { "plugins": [{ "path": "/caminho/do/marketplace/plugins/meu-plugin" }] }
 ```
