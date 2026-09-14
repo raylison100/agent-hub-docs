@@ -22,6 +22,12 @@ Actions monta, testa e publica o pacote. Veja [Desenvolvimento](Desenvolvimento)
 Cada Release traz o instalador do Windows e os pacotes `.deb` e `.rpm`,
 compilados no GitHub Actions a partir da mesma tag.
 
+## Feito: compartilhar modelos pelo relay
+
+Pessoas de confianca usam os modelos do Ollama umas das outras, com convite por
+pessoa, sala e chave proprias, limite diario, revogacao e so a chamada ao modelo
+atravessando. Veja [Compartilhar modelos](Compartilhar-modelos).
+
 ## Proximo
 
 - Nenhum item aberto. Ideias novas entram aqui antes de virar trabalho.

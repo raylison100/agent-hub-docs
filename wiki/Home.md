@@ -27,6 +27,7 @@ para decidir por codigo e decidido por codigo.
 | ligar GitHub, Jira e outros | [Conectores MCP](Conectores-MCP) |
 | rodar tarefas sozinho | [Automacao](Automacao) |
 | usar do celular ou de outro PC | [Desktop, celular e acesso remoto](Desktop-celular-e-acesso-remoto) |
+| usar o modelo local de alguem de confianca | [Compartilhar modelos](Compartilhar-modelos) |
 | saber o que e seguro | [Seguranca](Seguranca) |
 | integrar com outras ferramentas | [Protocolo e integracoes](Protocolo-e-integracoes) |
 | contribuir ou mexer no codigo | [Desenvolvimento](Desenvolvimento) |

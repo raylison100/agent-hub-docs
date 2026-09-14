@@ -43,6 +43,13 @@ Corpo de webhook entra como dado delimitado na mensagem, nunca como instrucao de
 sistema. Resultado de ferramenta volta ao modelo como resultado de ferramenta,
 com segredo redigido e cortado no teto de tamanho.
 
+## Compartilhamento de modelos
+
+Quem compartilha ve o texto das mensagens que chegam ao modelo dele. So atende
+chamada de modelo, dos modelos liberados, dentro do limite diario, e cada convite
+tem sala e chave proprias. Do lado de quem usa, o token da sala fica cifrado e
+fora do ambiente do processo. Detalhes em [Compartilhar modelos](Compartilhar-modelos).
+
 ## Automacao
 
 Toda automacao exige orcamento, comeca em rascunho e respeita o interruptor

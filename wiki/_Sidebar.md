@@ -13,6 +13,7 @@
 - [Conectores MCP](Conectores-MCP)
 - [Automacao](Automacao)
 - [Desktop, celular e acesso remoto](Desktop-celular-e-acesso-remoto)
+- [Compartilhar modelos](Compartilhar-modelos)
 
 **Modelo local**
 - [Modelo local](Modelo-local)
