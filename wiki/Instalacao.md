@@ -19,7 +19,7 @@ iniciais.
 ### Instalar
 
 ```bash
-npm install -g https://github.com/raylison100/agent-hub/releases/download/v0.1.0/agent-hub-0.1.0.tgz
+npm install -g https://github.com/raylison100/agent-hub/releases/download/v0.2.0/agent-hub-0.2.0.tgz
 agent-hub instalar
 ```
 
