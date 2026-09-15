@@ -36,16 +36,28 @@ Runs periodicos com expressao cron, executados pelo daemon.
   "cron": "0 8 * * 1-5",
   "timezone": "America/Sao_Paulo",
   "agent": "deepseek-dev",
+  "role": "revisor",
   "workspace": "/home/usuario/Projects/meu-projeto/api",
   "prompt": "Liste os MRs abertos atribuidos a mim e resuma o que cada um precisa para ser aprovado.",
   "mode": "draft",
   "budget": { "run_usd": 0.20, "day_usd": 0.50 },
   "overlap": "skip",
   "missed": "skip",
-  "notify": ["clients", "webhook:slack-pessoal"]
+  "notify": ["telegram"]
 }
 ```
 
+- `role` (opcional): papel de `agents/roles` usado no run e gravado na
+  sessao, com os modelos, ferramentas, skills e politica dele. Sem `role`, o
+  papel sai das regras do `routing.json` como num pedido comum.
+- `notify` (opcional): canais que recebem a resposta final do agente. Com
+  `telegram`, a ponte do Telegram manda o texto para o primeiro id permitido e
+  prende o chat nessa sessao: a resposta de quem recebeu continua a conversa
+  com o agente (ex.: aprovar itens propostos). `/nova` solta o chat. Sem
+  `notify`, o Telegram recebe so a linha de status.
+- `mode`: `draft` bloqueia escrita e comandos. `normal` usa a politica do
+  papel; como ninguem esta olhando, o que for `ask` espera aprovacao ate o
+  prazo e depois e negado.
 - `missed`: o que fazer com disparos perdidos porque a maquina estava
   desligada. `skip` ignora, `run_once` executa uma vez ao ligar.
 - Agendamentos ficam na tabela `schedules` do SQLite e podem ser criados
