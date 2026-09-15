@@ -55,7 +55,10 @@ Runs periodicos com expressao cron, executados pelo daemon.
   sao configurados em Configuracoes > Canais e rodam dentro do daemon. O texto
   vai para a primeira pessoa permitida que ja falou com o bot, e a conversa
   fica presa nessa sessao: a resposta de quem recebeu continua a conversa com o
-  agente (ex.: aprovar itens propostos). `/nova` solta a conversa.
+  agente (ex.: aprovar itens propostos). `/nova` solta a conversa. Resposta que
+  comeca com `[sem-aviso]` nao vai para o canal (rotina que nao achou trabalho).
+  Linhas de imagem em markdown `![legenda](caminho)` com arquivo dentro do
+  workspace sao enviadas como foto nos canais que aceitam imagem.
 - `mode`: `draft` bloqueia escrita e comandos. `normal` usa a politica do
   papel; como ninguem esta olhando, o que for `ask` espera aprovacao ate o
   prazo e depois e negado.
